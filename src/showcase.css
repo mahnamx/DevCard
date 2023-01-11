@@ -1,0 +1,283 @@
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+input[type="checkbox"] {
+  width: 12px;
+  margin-right: 5px;
+}
+
+.instructions {
+  padding: 10px;
+  font-size: 0.775rem;
+  margin: 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pageBody {
+  color: white;
+  background-color: #22212c;
+  background-image: url("https://bit.ly/3o6lZWh"),
+    radial-gradient(
+      circle,
+      rgba(149, 128, 255, 0.4) 0%,
+      rgba(34, 33, 44, 0.4) 100%
+    );
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 20px;
+  font-weight: bold;
+  height: 60px;
+  font-size: 1.2em;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.toggle {
+  display: none;
+}
+
+.wrap-collabsible {
+  margin: 1.2rem 0;
+}
+.lbl-toggle {
+  display: block;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+  color: #ddd;
+  background: #0069ff;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+  width: 218px;
+  height: 60px;
+}
+.lbl-toggle:hover {
+  color: #fff;
+}
+
+.lbl-toggle:active {
+  color: lightpink;
+}
+
+.lbl-toggle::before {
+  content: " ";
+  display: inline-block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  vertical-align: middle;
+  margin-right: 0.7rem;
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-out;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.25s ease-in-out;
+}
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 350px;
+}
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.collapsible-content .content-inner {
+  background: rgba(0, 105, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 105, 255, 0.45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: 0.5rem 1rem;
+}
+.collapsible-content p {
+  margin-bottom: 0;
+}
+
+main {
+  padding: 4rem 0;
+  min-height: 100vh;
+}
+main section {
+  width: 100%;
+}
+main section .lx-card {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(34, 33, 44, 0.9);
+}
+main section .title {
+  width: 100%;
+  text-align: left;
+  font-size: 1.5rem;
+}
+main section .title svg {
+  color: #04d361;
+}
+main section .text {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.88rem;
+  border-radius: 0.328rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+main section .text svg {
+  color: #ff5555;
+}
+main section .text ol {
+  padding-inline-start: 2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+main section .text p:first-child {
+  margin-top: 0;
+}
+main section .text p:last-child {
+  margin-bottom: 0;
+}
+main section .pic {
+  width: 100%;
+  max-width: 15rem;
+  max-height: 15rem;
+  border-radius: 0.328rem;
+  overflow: hidden;
+}
+main section .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+main section .infos {
+  width: 100%;
+  margin: 0.5rem 0 0 0;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+}
+main section .infos svg {
+  color: #04d361;
+}
+main section .mini-cards {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+main section .mini-cards a,
+main section .mini-cards span {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0.5rem;
+  border-radius: 0.328rem;
+  font-size: 1rem;
+  background-color: #2a2c37;
+  transition: background-color 0.4s ease-in-out;
+}
+main section .mini-cards a svg,
+main section .mini-cards span svg {
+  color: #9580ff;
+  transition: color 0.3s ease-in-out;
+}
+main section .mini-cards a:focus,
+main section .mini-cards a:hover,
+main section .mini-cards span:focus,
+main section .mini-cards span:hover {
+  background-color: #04d361;
+}
+main section .mini-cards a:focus svg,
+main section .mini-cards a:hover svg,
+main section .mini-cards span:focus svg,
+main section .mini-cards span:hover svg {
+  color: #22212c;
+}
+
+@media screen and (max-width: 65rem) {
+  main section .mini-cards {
+    grid-template-rows: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 50rem) {
+  main section .mini-cards {
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
